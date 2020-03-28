@@ -28,9 +28,5 @@ def normal(mu, sigma):
     
     #return random.normalvariate(mu, sigma)
 
-for x in range(10):
-    a = exponencial(8) * 60
-    b = exponencial(8*60)
-    c = exponencial(15)
-    print((a,b,c))
+
 

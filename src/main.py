@@ -1,4 +1,5 @@
  
+import sys
 import heapq
 from utils import *
 
@@ -15,6 +16,11 @@ class Barco():
         self.tiempoDeCarga = self.generarTiempoDeCarga(self.tipo)
         self.id = id
     
+    def __lt__(self,other):
+        if self.id < other.id:
+            return True
+        return False
+
     def generarTipo (self):
         r = random.random()
         if r <= 0.25:
@@ -180,7 +186,7 @@ class Puerto():
 
         
 
-def main(*args,**kwargs):
+def main():
     veces = 0
     duracion = 0
     cantidadDeBarcos = 0
@@ -188,13 +194,14 @@ def main(*args,**kwargs):
     tiempoEnElPuerto = 0
     tiempoDeEsperaEnElPuerto = 0
 
-    if len(args) < 3 :
+    
+    if len(sys.argv) < 3 :
         veces = 45
         duracion = 24
 
     else :
-        veces = args[1]
-        duracion = args[2]
+        veces = int(sys.argv[1])
+        duracion = int(sys.argv[2])
 
     for i in range(veces):
         print("#"*100)
